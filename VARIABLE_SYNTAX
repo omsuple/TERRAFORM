@@ -1,0 +1,5 @@
+variable "your_variable_name" {
+  description = "  "
+  default = "  "
+  type =      
+}
