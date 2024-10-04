@@ -1,0 +1,21 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.54.1"
+    }
+  }
+  backend "s3" {
+    bucket = "demo-bucket-79c7bb2f78f40bd7"
+    key    = "backend.tfstate"
+    region = "us-east-1"
+  }
+}
+
+resource "aws_instance" "ec2" {
+  ami           = var.ami
+  instance_type = "t2.micro"
+  tags = {
+    Name = "Backend-storage"
+  }
+}
