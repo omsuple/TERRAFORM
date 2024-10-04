@@ -12,8 +12,13 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = var.region
+
+}
+
 resource "aws_instance" "ec2" {
-  ami           = var.ami
+  ami           = "ami-0fff1b9a61dec8a5f"
   instance_type = "t2.micro"
   tags = {
     Name = "Backend-storage"
